@@ -1,0 +1,11 @@
+---
+- name: Install fonepass
+  hosts: fonepass
+  tasks:
+    - name: copy artifacts
+      copy:
+        src: /var/lib/jenkins/jobs/fonepass_build/workspace/target/fonepass.war
+        dest: /var/lib/tomcat/webapps/
+      become: true
+      register: artifact_deploy
+     

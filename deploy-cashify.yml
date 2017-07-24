@@ -1,0 +1,11 @@
+---
+- name: Install cashify
+  hosts: cashify
+  tasks:
+    - name: copy artifacts
+      copy:
+        src: /var/lib/jenkins/jobs/cashify_build/workspace/target/cashify.war
+        dest: /var/lib/tomcat/webapps/
+      become: true
+      register: artifact_deploy
+     

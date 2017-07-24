@@ -1,0 +1,12 @@
+---
+- name: Install fonetwish
+  hosts: fonetwish
+  remote_user: ec2-user
+  tasks:
+    - name: copy artifacts
+      copy:
+        src: /var/lib/jenkins/jobs/fonetwish_build/workspace/target/fonetwish.war
+        dest: /var/lib/tomcat/webapps/
+      become: true
+      register: artifact_deploy
+     

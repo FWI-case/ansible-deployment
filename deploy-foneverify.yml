@@ -1,0 +1,11 @@
+---
+- name: Install foneverify
+  hosts: foneverify
+  tasks:
+    - name: copy artifacts
+      copy:
+        src: /var/lib/jenkins/jobs/foneverify_build/workspace/target/foneverify.war
+        dest: /var/lib/tomcat/webapps/
+      become: true
+      register: artifact_deploy
+     
